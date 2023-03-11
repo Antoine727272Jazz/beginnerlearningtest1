@@ -1,0 +1,94 @@
+from tkinter import *
+import random
+
+
+liste_de_mots = ['plume', 'fleur', 'feuille', 'vague', 'iris', 'mirage',
+                 'bulle', 'image', 'pelure', 'myriade', 'foule', 'miniature',
+                 'échancrée', 'pétale', 'vent', 'aléatoire', 'loupe', 'chapeau',
+                 'tempête', 'cire', 'deutérium', 'influence', 'fouine']
+
+mot_aleatoire=random.choice(liste_de_mots)
+
+def create_randmnss():
+    tehchoice = Tchoice.get()
+
+    if tehchoice =="":
+        resultBox.delete(0.0,END)
+        resultBox.insert(END,"\nAwh common just select a randomness already!")
+
+    length = int(pass_lenght.get())
+    randPass = []
+    for i in range(length):
+        randPass.append(choice(tehchoice))
+
+    result = "".join(randPass)
+
+    TheResult = mot_aleatoire
+
+    resultBox.delete(0.0,END)
+    resultBox.insert(END,TheResult)
+
+    resultBox2.delete(0.0,END)
+    resultBox2.insert(END,TheResult)
+
+    resultBox3.delete(0.0,END)
+    resultBox3.insert(END,TheResult)
+
+window = Tk()
+window.geometry("800x900")
+window.title("ProgrammePoétictactictac")
+
+Tchoice=StringVar()
+
+choixmot = Radiobutton(window,font=('corbel',10,'bold'),text ="Choix du mot", variable = Tchoice, value=Button)
+choixmot.place(relx=.05, rely=.3)
+
+pasdechoixdemot = Radiobutton(window,font=('corbel',10,'bold'),text ="Pas de Choix du mot", variable = Tchoice, value=Button)
+pasdechoixdemot.place(relx=.05, rely=.33)
+
+Progname = Label(window,font=('MV boli', 28, 'italic'), text="Programme Poétictactictac", fg="blue")
+Progname.grid(row=1, column=3, padx=150, pady=30)
+
+ChooseType = Label(window,font=('Impact', 21, 'italic'), text="Choisis le tempo", fg="orange")
+ChooseType.place(relx=.03, rely=.2)
+
+GenButton = Button(window, text="Kiratatop",command=create_randmnss)
+GenButton.place(relx=.15, rely=.63)
+
+Button2 = Button(window, text="Kitaratop",command=create_randmnss)
+Button2.place(relx=.15, rely=.53)
+
+Button3 = Button(window, text="Kirataotop", command=create_randmnss)
+Button3.place(relx=.15, rely=.43)
+
+GenButton1 = Button(window, text="Koritatop",command=create_randmnss)
+GenButton1.place(relx=.05, rely=.63)
+
+Button22 = Button(window, text="Kiratotap",command=create_randmnss)
+Button22.place(relx=.05, rely=.53)
+
+Button33 = Button(window, text="Kioriatatap",command=create_randmnss)
+Button33.place(relx=.05, rely=.43)
+
+pass_lenght=Spinbox(window, from_=0, to=10)
+pass_lenght.place(relx=.6, rely=.43)
+
+pass_lenght2=Spinbox(window, from_=11, to=20)
+pass_lenght2.place(relx=.6, rely=.53)
+
+pass_lenght3=Spinbox(window, from_=21, to=30)
+pass_lenght3.place(relx=.6, rely=.63)
+
+resultBox = Text(window, height=3, width=50)
+resultBox.place(relx=.04, rely=.89)
+
+resultBox2 = Text(window, height=3, width=50)
+resultBox2.place(relx=.04, rely=.79)
+
+resultBox3 = Text(window, height=3, width=50)
+resultBox3.place(relx=.04, rely=.69)
+
+
+
+
+window.mainloop()
